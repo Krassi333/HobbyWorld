@@ -1,0 +1,27 @@
+<section id="detailsPage">
+    <div class="details">
+        <div class="animalPic">
+            <img src="{{post.imageUrl}}">
+        </div>
+        <div>
+            <div class="animalInfo">
+                <h1>Name: {{post.title}}</h1>
+                <h3>Breed: </h3>
+                <h4>Age: </h4>
+                <h4>Weight: </h4>
+                <h4 class="donation">Donation: </h4>
+            </div>
+
+            <div class="actionBtn">
+
+                <a href="/edit/${data._id}" class="edit">Edit</a>
+                <a href="javascript.void[0]" class="remove">Delete</a>
+
+                <a href="#" class="donate">Donate</a>
+
+
+            </div>
+
+        </div>
+    </div>
+</section>

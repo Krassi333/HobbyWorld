@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
 import { environment } from 'src/environments/environment';
-import { Post } from './types/post';
+import { IPost } from './types/post';
 
 
 const {apiUrl}=environment;
@@ -14,10 +14,12 @@ export class ApiService {
 
   constructor(private http:HttpClient) {  }
 
-  getPosts() {
-  
-    return this.http.get<Post[]>(`${apiUrl}/posts`);
+  getAllPosts() {
+    return this.http.get<IPost[]>(`${apiUrl}/posts`);
+  }
 
+  getPostById(id:string){
+    return this.http.get<IPost>(`${apiUrl}/posts/details/${id}`);
   }
    
  
