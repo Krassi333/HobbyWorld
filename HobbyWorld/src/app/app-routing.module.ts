@@ -6,6 +6,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { PageNotFoundComponent } from './core/page-not-found/page-not-found.component';
 import { CatalogComponent } from './features/catalog/catalog.component';
 import { DetailsComponent } from './features/details/details.component';
+import { CreatePostComponent } from './features/create-post/create-post.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
       {
         path:'details/:postId',
         component:DetailsComponent
+      },
+      {
+        path:'create',
+        component:CreatePostComponent
       }
     ]
   },
