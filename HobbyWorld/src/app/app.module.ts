@@ -9,7 +9,6 @@ import { AuthModule } from './auth/auth.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FeaturesModule } from './features/features.module';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
-import { environment } from '../environments/environment';
 import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
@@ -21,6 +20,7 @@ import { provideRemoteConfig,getRemoteConfig } from '@angular/fire/remote-config
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 
 
 @NgModule({
