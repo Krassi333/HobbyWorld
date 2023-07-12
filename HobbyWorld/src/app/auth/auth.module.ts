@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { LogoutComponent } from './logout/logout.component';
+import { FormsModule } from '@angular/forms';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 
@@ -13,7 +15,10 @@ import { LogoutComponent } from './logout/logout.component';
     LogoutComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    MatSnackBarModule
+
   ],
   exports:[
     LoginComponent,
