@@ -1,23 +1,23 @@
-<form class="form-group">
+<form #registerForm="ngForm" (ngSubmit)="onSubmit()">
     <h2>Register</h2>
     <div class="on-dark">
         <label for="username">Username:</label>
-        <input type="text" placeholder="Steven" class="form-control" name="username">
+        <input  name="username" ngModel type="text" placeholder="Steven" class="form-control">
     </div>
 
     <div class="on-dark">
         <label for="email">Email:</label>
-        <input type="text" placeholder="Steven@abv.bg" class="form-control" name="email">
+        <input type="text" placeholder="Steven@abv.bg" class="form-control" name="email" ngModel>
     </div>
 
     <div class="on-dark">
         <label for="password">Password:</label>
-        <input type="password" placeholder="********" class="form-control" name="password">
+        <input type="password" placeholder="********" class="form-control" name="password" ngModel>
     </div>
 
     <div class="on-dark">
         <label for="repeatPassword">Repeat Password:</label>
-        <input type="password" placeholder="********" class="form-control" name="rePass">
+        <input type="password" placeholder="********" class="form-control" name="rePass" ngModel>
     </div>
 
     <button class="btn" type="submit">Register</button>
