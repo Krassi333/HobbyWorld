@@ -1,0 +1,25 @@
+
+<nav>
+    <!-- Do not forget to change the path to the image -->
+    <img src="../../../favicon.ico" alt="logo">
+
+    <ul class="menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/features/catalog">All Posts</a></li>
+        <!-- Logged users -->
+       <div *ngIf="isLoggedIn">
+        <li><a href="/features/create">Create Post</a></li>
+        <li><a href="/myPosts">Posts of </a></li>
+        <li><a href="/auth/logout">Logout</a></li>
+       </div>
+        
+        <!-- Guest users -->
+      <div *ngIf="!isLoggedIn">
+        <li><a routerLink ="/auth/login">Login</a></li>
+        <li><a routerLink ="/auth/register">Register</a></li>
+      </div>
+        
+      
+    </ul>
+
+</nav>
