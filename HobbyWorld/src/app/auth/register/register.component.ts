@@ -36,7 +36,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
         this.router.navigate(['/']);
       },
       (err) => {
-        const errorMessage = "Sign up failed - " + err.error.error.message;
+        const errorMessage = "Register failed - " + err.error.error.message;
 
         this.matSnackBar.open(errorMessage, "OK", {
           verticalPosition: "top",
