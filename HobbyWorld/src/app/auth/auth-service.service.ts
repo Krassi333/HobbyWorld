@@ -14,18 +14,20 @@ export class AuthServiceService {
   constructor(private http: HttpClient, private database: Database) { }
 
   register(data: IUser) {
-    const apiKey =environment.firebase.apiKey ;
-console.log(apiKey);
+    const apiKey = environment.firebase.apiKey;
+console.log({ ...data, returnSecureToken: true });
 
-    return this.http.post<IUser>(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${apiKey}`,  {data,returnSecureToken:true});
+    return this.http.post<IUser>(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${apiKey}`,
+      { ...data, returnSecureToken: true });
 
   }
 
-  login(data:any) {
-    const apiKey =environment.firebase.apiKey ;
-console.log(data);
+  login(data: any) {
+    const apiKey = environment.firebase.apiKey;
+    console.log(data);
 
-    return this.http.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${apiKey}`, {...data,returnSecureToken:true});
+    return this.http.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${apiKey}`,
+      { ...data, returnSecureToken: true });
 
   }
 }
