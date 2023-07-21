@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/auth-service.service';
 
 @Component({
   selector: 'app-header',
@@ -6,5 +8,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  isLoggedIn: boolean = false;
+  constructor(private authService: AuthService, private router: Router) { }
+
+
+  get isLoggedIn(): boolean {
+    return this.authService.isLogged;
+  }
+
+  get username(): string {
+    return this.authService.user?.username || '';
+  }
+
+  logout(): void {
+    this.authService.logout();
+    this.router.navigate(['/']);
+  }
 }
