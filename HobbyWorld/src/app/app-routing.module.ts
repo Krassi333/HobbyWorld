@@ -7,11 +7,16 @@ import { PageNotFoundComponent } from './core/page-not-found/page-not-found.comp
 import { CatalogComponent } from './features/catalog/catalog.component';
 import { DetailsComponent } from './features/details/details.component';
 import { CreatePostComponent } from './features/create-post/create-post.component';
+import { ProfileComponent } from './auth/profile/profile.component';
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
+    redirectTo: '/home'
+  },
+  {
+    path: 'home',
     component: HomeComponent
   },
   {
@@ -24,6 +29,10 @@ const routes: Routes = [
       {
         path: 'register',
         component: RegisterComponent
+      },
+      {
+        path: 'myProfile',
+        component: ProfileComponent
       }
     ]
   },
@@ -35,12 +44,12 @@ const routes: Routes = [
         component: CatalogComponent
       },
       {
-        path:'details/:postId',
-        component:DetailsComponent
+        path: 'details/:postId',
+        component: DetailsComponent
       },
       {
-        path:'create',
-        component:CreatePostComponent
+        path: 'create',
+        component: CreatePostComponent
       }
     ]
   },
