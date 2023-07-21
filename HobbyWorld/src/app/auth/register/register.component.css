@@ -23,11 +23,7 @@ form div {
     flex-direction: column;
 }
 
-label {
-    margin: 0 0 0.2em 0;
-    color: black;
-    font-size: 1.5rem;
-}
+
 
 input {
     text-decoration: inherit;
@@ -39,22 +35,33 @@ input {
     padding: 0.5rem 1.5rem;
 }
 
+button:disabled,
+button[disabled] {
+    border: 1px solid #999999;
+    background-image: linear-gradient(45deg, #999999, #999999) !important;
+    color: #666666;
+    cursor: not-allowed !important;
+    background-color: rgb(229, 229, 229) !important;
+}
+
 form button.btn {
     margin: 1em 1em;
     padding: 0.5rem;
     border: none;
-    /* border: 2px solid black; */
     border-radius: 0.5em;
     background-image: linear-gradient(45deg, #fdeb82, #f78fad);
-
-    /* background-color: rgba(0, 0, 0, 0.541); */
     font-size: 1.2rem;
     box-sizing: 2px 2px 2px black;
 }
+
 
 form button:hover {
     cursor: pointer;
     background-image: linear-gradient(45deg, #364236, #b0c8b0);
     color: white
         /* font-weight: bold; */
+}
+
+.error {
+    color: red
 }

@@ -1,51 +1,66 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
-import { AuthServiceService } from '../auth-service.service';
-import { IUser } from 'src/app/types/user';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, ContentChildren, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AuthService } from '../auth-service.service';
+import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit, AfterViewInit {
+export class RegisterComponent implements OnInit {
 
-  @ViewChild('registerForm') registerForm!: NgForm;
+  registerForm: FormGroup = new FormGroup({
+    username: new FormControl('',
+      [Validators.required,
+      Validators.minLength(5)]),
+    email: new FormControl('',
+      [Validators.required,
+      Validators.email]),
+    password: new FormControl('',
+      [Validators.required,
+      Validators.minLength(6)]),
+    rePass: new FormControl('', [Validators.required])
+
+  })
 
   ngOnInit(): void { }
 
-  ngAfterViewInit(): void { }
-
-  constructor(private authService: AuthServiceService,
+  constructor(private authService: AuthService,
     private router: Router,
     private matSnackBar: MatSnackBar) { }
 
   onSubmit() {
-    console.log(this.registerForm.value);
-    const data: IUser = {
-      username: this.registerForm.value.username,
-      email: this.registerForm.value.email,
-      hashedPassword: this.registerForm.value.password
-    }
-    this.authService.register(data).subscribe(
-      (response) => {
+    this.authService.register(this.registerForm.value).subscribe(
+      (response: any) => {
         console.log(response);
         this.registerForm.reset();
         this.router.navigate(['/']);
       },
-      (err) => {
+      (err: any) => {
         const errorMessage = "Register failed - " + err.error.error.message;
 
         this.matSnackBar.open(errorMessage, "OK", {
           verticalPosition: "top",
           horizontalPosition: "center",
-          panelClass: 'bg-danger'
+          panelClass: 'error'
         });
+      });
 
-      }
-    )
+      this.authService.getUsers().subscribe(
+        (res)=>{
+          console.log('------------------');
+          console.log(res);
+          console.log('------------------');
+
+        }
+      )
 
   }
 }
+function register(value: any) {
+  throw new Error('Function not implemented.');
+}
+
