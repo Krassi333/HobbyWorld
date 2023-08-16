@@ -2,9 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { LogoutComponent } from './logout/logout.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatCardModule} from '@angular/material/card';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { ProfileComponent } from './profile/profile.component';
+import { MyPostsComponent } from './profile/my-posts/my-posts.component';
+
+
 
 
 
@@ -12,17 +17,23 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
   declarations: [
     LoginComponent,
     RegisterComponent,
-    LogoutComponent
+    ProfileComponent,
+    MyPostsComponent,
+ 
   ],
   imports: [
     CommonModule,
     FormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    ReactiveFormsModule,
+    MatCardModule,
+    MatFormFieldModule
 
   ],
   exports:[
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProfileComponent
   ]
 })
 export class AuthModule { }
